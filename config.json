@@ -1,0 +1,206 @@
+﻿{
+        "WPFTweaks":  [
+                          "WPFTweaksRestorePoint",
+                          "WPFTweaksDisableNotifications",
+                          "WPFTweaksRemoveEdge",
+                          "WPFTweaksPowershell7",
+                          "WPFTweaksEndTaskOnTaskbar",
+                          "WPFTweaksDeleteTempFiles",
+                          "WPFTweaksUTC",
+                          "WPFTweaksRazerBlock",
+                          "WPFTweaksPowershell7Tele",
+                          "WPFTweaksAH",
+                          "WPFTweaksServices",
+                          "WPFTweaksConsumerFeatures",
+                          "WPFTweaksDiskCleanup",
+                          "WPFTweaksRemoveCopilot",
+                          "WPFTweaksEdgeDebloat",
+                          "WPFTweaksWifi",
+                          "WPFTweaksTele",
+                          "WPFTweaksHiber",
+                          "WPFTweaksHome",
+                          "WPFTweaksRemoveOnedrive",
+                          "WPFTweaksRightClickMenu",
+                          "WPFTweaksRecallOff",
+                          "WPFTweaksLoc",
+                          "WPFTweaksDVR",
+                          "WPFTweaksStorage",
+                          "WPFTweaksDisableExplorerAutoDiscovery"
+                      ],
+        "Install":  [
+                        {
+                            "winget":  "Vencord.Vesktop",
+                            "choco":  "na"
+                        },
+                        {
+                            "winget":  "Mozilla.Thunderbird",
+                            "choco":  "thunderbird"
+                        },
+                        {
+                            "winget":  "Microsoft.NuGet",
+                            "choco":  "nuget.commandline"
+                        },
+                        {
+                            "winget":  "Microsoft.VisualStudioCode",
+                            "choco":  "vscode"
+                        },
+                        {
+                            "winget":  "Nushell.Nushell",
+                            "choco":  "nushell"
+                        },
+                        {
+                            "winget":  "Microsoft.PowerShell",
+                            "choco":  "powershell-core"
+                        },
+                        {
+                            "winget":  "BurntSushi.ripgrep.MSVC",
+                            "choco":  "ripgrep"
+                        },
+                        {
+                            "winget":  "Alacritty.Alacritty",
+                            "choco":  "alacritty"
+                        },
+                        {
+                            "winget":  "Microsoft.Teams",
+                            "choco":  "microsoft-teams"
+                        },
+                        {
+                            "winget":  "Neovim.Neovim",
+                            "choco":  "neovim"
+                        },
+                        {
+                            "winget":  "PuTTY.PuTTY",
+                            "choco":  "putty"
+                        },
+                        {
+                            "winget":  "Microsoft.WindowsTerminal",
+                            "choco":  "microsoft-windows-terminal"
+                        },
+                        {
+                            "winget":  "EpicGames.EpicGamesLauncher",
+                            "choco":  "epicgameslauncher"
+                        },
+                        {
+                            "winget":  "Bitwarden.Bitwarden",
+                            "choco":  "bitwarden"
+                        },
+                        {
+                            "winget":  "Ventoy.Ventoy",
+                            "choco":  "ventoy"
+                        },
+                        {
+                            "winget":  "Microsoft.PowerToys",
+                            "choco":  "powertoys"
+                        },
+                        {
+                            "winget":  "Zen-Team.Zen-Browser",
+                            "choco":  "na"
+                        },
+                        {
+                            "winget":  "Valve.Steam",
+                            "choco":  "steam-client"
+                        },
+                        {
+                            "winget":  "Mozilla.Firefox",
+                            "choco":  "firefox"
+                        },
+                        {
+                            "winget":  "Git.Git",
+                            "choco":  "git"
+                        },
+                        {
+                            "winget":  "GitHub.cli",
+                            "choco":  "git;gh"
+                        },
+                        {
+                            "winget":  "VideoLAN.VLC",
+                            "choco":  "vlc"
+                        },
+                        {
+                            "winget":  "Element.Element",
+                            "choco":  "element-desktop"
+                        },
+                        {
+                            "winget":  "VSCodium.VSCodium",
+                            "choco":  "vscodium"
+                        },
+                        {
+                            "winget":  "junegunn.fzf",
+                            "choco":  "fzf"
+                        },
+                        {
+                            "winget":  "ItchIo.Itch",
+                            "choco":  "itch"
+                        },
+                        {
+                            "winget":  "Spotify.Spotify",
+                            "choco":  "spotify"
+                        },
+                        {
+                            "winget":  "Python.Python.3.12",
+                            "choco":  "python"
+                        },
+                        {
+                            "winget":  "Microsoft.Edge",
+                            "choco":  "microsoft-edge"
+                        },
+                        {
+                            "winget":  "sharkdp.bat",
+                            "choco":  "bat"
+                        },
+                        {
+                            "winget":  "SlackTechnologies.Slack",
+                            "choco":  "slack"
+                        },
+                        {
+                            "winget":  "Docker.DockerDesktop",
+                            "choco":  "docker-desktop"
+                        },
+                        {
+                            "winget":  "starship",
+                            "choco":  "starship"
+                        }
+                    ],
+        "WPFInstall":  [
+                           "WPFInstallvesktop",
+                           "WPFInstallthunderbird",
+                           "WPFInstallnuget",
+                           "WPFInstallvscode",
+                           "WPFInstallnushell",
+                           "WPFInstallpowershell",
+                           "WPFInstallripgrep",
+                           "WPFInstallalacritty",
+                           "WPFInstallteams",
+                           "WPFInstallneovim",
+                           "WPFInstallputty",
+                           "WPFInstallterminal",
+                           "WPFInstallepicgames",
+                           "WPFInstallbitwarden",
+                           "WPFInstallventoy",
+                           "WPFInstallpowertoys",
+                           "WPFInstallZenBrowser",
+                           "WPFInstallsteam",
+                           "WPFInstallfirefox",
+                           "WPFInstallgit",
+                           "WPFInstallgithubcli",
+                           "WPFInstallvlc",
+                           "WPFInstallmatrix",
+                           "WPFInstallvscodium",
+                           "WPFInstallfzf",
+                           "WPFInstallitch",
+                           "WPFInstallspotify",
+                           "WPFInstallpython3",
+                           "WPFInstalledge",
+                           "WPFInstallbat",
+                           "WPFInstallslack",
+                           "WPFInstalldockerdesktop",
+                           "WPFInstallstarship"
+                       ],
+        "WPFFeature":  [
+                           "WPFFeatureEnableLegacyRecovery",
+                           "WPFFeatureDisableSearchSuggestions",
+                           "WPFFeaturesSandbox",
+                           "WPFFeaturewsl",
+                           "WPFFeatureshyperv"
+                       ]
+    }

@@ -1,0 +1,11 @@
+﻿{
+        "WPFTweaks":  [
+                          "WPFTweaksDisableNotifications"
+                      ],
+        "WPFInstall":  [
+                           "WPFInstallstarship"
+                       ],
+        "WPFFeature":  [
+                           "WPFFeatureDisableSearchSuggestions"
+                       ]
+    }

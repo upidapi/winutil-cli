@@ -105,7 +105,6 @@
     "category": "Features",
     "panel": "1",
     "Order": "a016_",
-    "feature": [],
     "InvokeScript": [
       "
       If (!(Test-Path 'HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer')) {

@@ -56,15 +56,13 @@ function Invoke-WinUtilTweaks {
 
         # The check for !($undo) is required, without it the script will throw an error for accessing unavailable memeber, which's the 'OriginalService' Property
             if($KeepServiceStartup -AND !($undo)) {
-                try {
-                    # Check if the service exists
-                    $service = Get-Service -Name $psitem.Name -ErrorAction Stop
-                    if(!($service.StartType.ToString() -eq $psitem.$($values.OriginalService))) {
-                        Write-Debug "Service $($service.Name) was changed in the past to $($service.StartType.ToString()) from it's original type of $($psitem.$($values.OriginalService)), will not change it to $($psitem.$($values.service))"
-                        $changeservice = $false
-                    }
-                } catch [System.ServiceProcess.ServiceNotFoundException] {
+                # Check if the service exists
+                $service = Get-Service -Name $psitem.Name -ErrorAction SilentlyContinue
+                if (!$service) {
                     Write-Warning "Service $($psitem.Name) was not found"
+                } elseif (!($service.StartType.ToString() -eq $psitem.$($values.OriginalService))) {
+                    Write-Debug "Service $($service.Name) was changed in the past to $($service.StartType.ToString()) from it's original type of $($psitem.$($values.OriginalService)), will not change it to $($psitem.$($values.service))"
+                    $changeservice = $false
                 }
             }
 

@@ -43,6 +43,8 @@ function Set-WinUtilTaskbaritem {
         [string]$description
     )
 
+    return
+
     if ($value) {
         $sync["Form"].taskbarItemInfo.ProgressValue = $value
     }

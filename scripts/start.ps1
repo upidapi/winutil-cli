@@ -1,10 +1,12 @@
-<#
+﻿<#
 .NOTES
     Author         : Chris Titus @christitustech
     Runspace Author: @DeveloperDurp
     GitHub         : https://github.com/ChrisTitusTech
     Version        : #{replaceme}
 #>
+
+using namespace System.ServiceProcess
 
 param (
     [switch]$Debug,
@@ -31,6 +33,8 @@ if ($Run) {
 # Load DLLs
 Add-Type -AssemblyName PresentationFramework
 Add-Type -AssemblyName System.Windows.Forms
+
+Add-Type -AssemblyName System.ServiceProcess
 
 # Variable to sync between runspaces
 $sync = [Hashtable]::Synchronized(@{})
@@ -84,5 +88,5 @@ $logdir = "$env:localappdata\winutil\logs"
 Start-Transcript -Path "$logdir\winutil_$dateTime.log" -Append -NoClobber | Out-Null
 
 # Set PowerShell window title
-$Host.UI.RawUI.WindowTitle = "WinUtil (Admin)"
-clear-host
+# $Host.UI.RawUI.WindowTitle = "WinUtil (Admin)"
+# clear-host
