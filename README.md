@@ -1,13 +1,14 @@
 # Chris Titus Tech's Windows Utility - cli version
+This is not in any way affiliated with the real winutil
+
 Works like -Run -Config does in the normal christitus winuitls, but doesn't run
 the ui. This makes it more responsive and faster. 
 
-The goal of this project is to make a silent install version of winutils, that
-makes use of all that it can do. But for now it only does that mention toned
-above, since i haven't got the motivation nor time to finish this now. 
+The goal of this project is to make a full cli version of winutils, that can do
+all that the normal winutil can do. But for now it only acts as a silent 
+install cli for it, since i haven't got the motivation nor time to finish it rn. 
 
 Feel free to contribute if you wish to make it more cliy. 
-
 
 If you decide to contribute, try to not reinvent the wheel. If you can use a
 function directly, try to. Don't remove things from functions that has no
@@ -43,7 +44,6 @@ config.json is my standard winutil config minimal.json is for debugging
 
 
 # The following is the readme for the normal winutils
-
 
 
 [![Version](https://img.shields.io/github/v/release/ChrisTitusTech/winutil?color=%230567ff&label=Latest%20Release&style=for-the-badge)](https://github.com/ChrisTitusTech/winutil/releases/latest)
