@@ -28,7 +28,9 @@ function Set-WinUtilRegistry {
     )
 
     try {
-        if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
+        if(!(Test-Path 'HKU:\')) {
+            New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS | Out-Null
+        }
 
         If (!(Test-Path $Path)) {
             Write-Host "$Path was not found, Creating..."
@@ -38,6 +40,7 @@ function Set-WinUtilRegistry {
         if ($Value -ne "<RemoveEntry>") {
             Write-Host "Set $Path\$Name to $Value"
             Set-ItemProperty -Path $Path -Name $Name -Type $Type -Value $Value -Force -ErrorAction Stop | Out-Null
+
         }
         else{
             Write-Host "Remove $Path\$Name"

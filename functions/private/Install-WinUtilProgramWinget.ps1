@@ -67,8 +67,7 @@ Function Install-WinUtilProgramWinget {
         return (Start-Process @processParams).ExitCode
     }
 
-    Function Invoke-Install {
-    <#
+    Function Invoke-Install { <#
     .SYNOPSIS
     Contains the Install Logic and return code handling from winget
 
@@ -96,11 +95,17 @@ Function Install-WinUtilProgramWinget {
             Write-Host "$($Program) No applicable update found"
             return $true
         }
+        
+        # return $true
 
         $userChoice = [System.Windows.MessageBox]::Show("Do you want to attempt $($Program) installation with specific user credentials? Select 'Yes' to proceed or 'No' to skip.", "User credential Prompt", [System.Windows.MessageBoxButton]::YesNo)
         if ($userChoice -eq 'Yes') {
             $getcreds = Get-Credential
+
             $status = Invoke-Winget -wingetId $Program -credential $getcreds
+
+            return $true
+
             if ($status -eq 0) {
                 Write-Host "$($Program) installed successfully with User prompt."
                 return $true

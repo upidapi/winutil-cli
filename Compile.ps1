@@ -68,7 +68,8 @@ $script_content.Add($(Get-Content "scripts\start.ps1").replace('#{replaceme}',"$
 Update-Progress "Adding: Functions" 20
 Get-ChildItem "functions" -Recurse -File | ForEach-Object {
     $script_content.Add($(Get-Content $psitem.FullName))
-    }
+}
+
 Update-Progress "Adding: Config *.json" 40
 Get-ChildItem "config" | Where-Object {$psitem.extension -eq ".json"} | ForEach-Object {
     $json = (Get-Content $psitem.FullName -Raw)
@@ -104,7 +105,12 @@ $xaml
 '@
 "@)
 
+$script_content.Add('if ($GUI) {')
 $script_content.Add($(Get-Content "scripts\main.ps1"))
+$script_content.Add('} else {')
+$script_content.Add($(Get-Content "scripts\cli.ps1"))
+$script_content.Add('}')
+
 
 if ($Debug) {
     Update-Progress "Writing debug files" 95

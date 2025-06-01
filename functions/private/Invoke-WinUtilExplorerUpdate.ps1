@@ -34,7 +34,7 @@ public class Win32 {
 
             # Send the broadcast message to all windows
             [Win32]::SendMessageTimeout($HWND_BROADCAST, $WM_SETTINGCHANGE, [IntPtr]::Zero, "ImmersiveColorSet", $SMTO_ABORTIFHUNG, $timeout, [ref]([IntPtr]::Zero))
-        }
+        } | Out-null
     } elseif ($action -eq "restart") {
         # Restart the Windows Explorer
         taskkill.exe /F /IM "explorer.exe"

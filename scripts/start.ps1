@@ -11,7 +11,8 @@ using namespace System.ServiceProcess
 param (
     [switch]$Debug,
     [string]$Config,
-    [switch]$Run
+    [switch]$Run,
+    [switch]$Gui
 )
 
 # Set DebugPreference based on the -Debug switch
@@ -23,12 +24,12 @@ if ($Config) {
     $PARAM_CONFIG = $Config
 }
 
-$PARAM_RUN = $false
-# Handle the -Run switch
-if ($Run) {
-    Write-Host "Running config file tasks..."
-    $PARAM_RUN = $true
-}
+# $PARAM_RUN = $false
+# # Handle the -Run switch
+# if ($Run) {
+#     Write-Host "Running config file tasks..."
+#     $PARAM_RUN = $true
+# }
 
 # Load DLLs
 Add-Type -AssemblyName PresentationFramework

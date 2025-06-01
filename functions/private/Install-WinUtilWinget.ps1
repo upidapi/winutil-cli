@@ -11,14 +11,13 @@ function Install-WinUtilWinget {
 
     try {
         if ($isWingetInstalled -eq "installed") {
-            Write-Host "`nWinget is already installed.`r" -ForegroundColor Green
+            Write-Host
             return
         } elseif ($isWingetInstalled -eq "outdated") {
-            Write-Host "`nWinget is Outdated. Continuing with install.`r" -ForegroundColor Yellow
+            Write-Host "Winget is Outdated. Continuing with install.`r" -ForegroundColor Yellow
         } else {
-            Write-Host "`nWinget is not Installed. Continuing with install.`r" -ForegroundColor Red
+            Write-Host "Winget is not Installed. Continuing with install.`r" -ForegroundColor Red
         }
-
 
         # Gets the computer's information
         if ($null -eq $sync.ComputerInfo) {

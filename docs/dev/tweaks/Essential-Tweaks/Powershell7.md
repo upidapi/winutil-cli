@@ -154,27 +154,28 @@ Function Install-WinUtilProgramWinget {
             [string]$scope = "",
             [PScredential]$credential = $null
         )
+        return 0
 
-        $commonArguments = "--id $wingetId --silent"
-        $arguments = if ($Action -eq "Install") {
-            "install $commonArguments --accept-source-agreements --accept-package-agreements $(if ($scope) {" --scope $scope"})"
-        } else {
-            "uninstall $commonArguments"
-        }
-
-        $processParams = @{
-            FilePath = "winget"
-            ArgumentList = $arguments
-            Wait = $true
-            PassThru = $true
-            NoNewWindow = $true
-        }
-
-        if ($credential) {
-            $processParams.credential = $credential
-        }
-
-        return (Start-Process @processParams).ExitCode
+        # $commonArguments = "--id $wingetId --silent"
+        # $arguments = if ($Action -eq "Install") {
+        # "install $commonArguments --accept-source-agreements --accept-package-agreements $(if ($scope) {" --scope $scope"})"
+        # } else {
+        # "uninstall $commonArguments"
+        # }
+        #  
+        # $processParams = @{
+        # FilePath = "winget"
+        # ArgumentList = $arguments
+        # Wait = $true
+        # PassThru = $true
+        # NoNewWindow = $true
+        # }
+        # 
+        # if ($credential) {
+        # $processParams.credential = $credential
+        # }
+        # 
+        # return (Start-Process @processParams).ExitCode
     }
 
     Function Invoke-Install {

@@ -23,7 +23,7 @@ function Get-WinUtilSelectedPackages
     $packages = [System.Collections.Hashtable]::new()
     $packagesWinget = [System.Collections.ArrayList]::new()
     $packagesChoco = [System.Collections.ArrayList]::new()
-    $packages[[PackageManagers]::Winget] = $packagesWinget
+    $packages[[packagemanagers]::winget] = $packagesWinget
     $packages[[PackageManagers]::Choco] = $packagesChoco
 
     Write-Debug "Checking packages using Preference '$($Preference)'"
@@ -33,27 +33,27 @@ function Get-WinUtilSelectedPackages
             "Choco" {
                 if ($package.choco -eq "na") {
                     Write-Debug "$($package.content) has no Choco value."
-                    $packagesWinget.add($package.winget)
-                    Write-Host "Queueing $($package.winget) for Winget"
+                    $null = $packagesWinget.add($package.winget)
+                    Write-Debug "Queueing $($package.winget) for Winget"
                 } else {
                     $null = $packagesChoco.add($package.choco)
-                    Write-Host "Queueing $($package.choco) for Chocolatey"
+                    Write-Debug "Queueing $($package.choco) for Chocolatey"
                 }
                 break
             }
             "Winget" {
                 if ($package.winget -eq "na") {
                     Write-Debug "$($package.content) has no Winget value."
-                    $packagesChoco.add($package.choco)
-                    Write-Host "Queueing $($package.choco) for Chocolatey"
+                    $null = $packagesChoco.add($package.choco)
+                    Write-Debug "Queueing $($package.choco) for Chocolatey"
                 } else {
                     $null = $packagesWinget.add($($package.winget))
-                    Write-Host "Queueing $($package.winget) for Winget"
+                    Write-Debug "Queueing $($package.winget) for Winget"
                 }
                 break
             }
         }
     }
-
+    
     return $packages
 }

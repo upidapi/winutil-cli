@@ -83,12 +83,13 @@ function Invoke-WinUtilTweaks {
                     Write-Debug "Failed to create HKU drive"
                 }
             }
-            Set-WinUtilRegistry -Name $psitem.Name -Path $psitem.Path -Type $psitem.Type -Value $psitem.$($values.registry)
+            Set-WinUtilRegistry -Name $psitem.Name -Path $psitem.Path -Type $psitem.Type -Value $psitem.$($values.registry) 
         }
     }
     if($sync.configs.tweaks.$CheckBox.$($values.ScriptType)) {
         $sync.configs.tweaks.$CheckBox.$($values.ScriptType) | ForEach-Object {
             Write-Debug "$($psitem) and state is $($psitem.$($values.ScriptType))"
+
             $Scriptblock = [scriptblock]::Create($psitem)
             Invoke-WinUtilScript -ScriptBlock $scriptblock -Name $CheckBox
         }

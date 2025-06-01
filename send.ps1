@@ -35,4 +35,4 @@ foreach ($file in $files) {
 Write-Host "Encoding conversion process completed."
 
 .\Compile.ps1
-.\winutil.ps1 -Config "config.json" -Run
+.\winutil.ps1 -Config "test.json" -Run

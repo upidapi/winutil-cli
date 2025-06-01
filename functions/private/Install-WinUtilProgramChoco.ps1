@@ -64,7 +64,12 @@ function Install-WinUtilProgramChoco {
         #>
 
         param ($arguments)
-        return (Start-Process -FilePath "choco" -ArgumentList $arguments -Wait -PassThru).ExitCode
+        return (Start-Process `
+            -FilePath "choco" `
+            -ArgumentList $arguments `
+            -Wait `
+            -PassThru 
+        ).ExitCode
     }
 
     function Test-UpgradeNeeded {

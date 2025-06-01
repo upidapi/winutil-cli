@@ -1,4 +1,50 @@
-# Chris Titus Tech's Windows Utility
+# Chris Titus Tech's Windows Utility - cli version
+Works like -Run -Config does in the normal christitus winuitls, but doesn't run
+the ui. This makes it more responsive and faster. 
+
+The goal of this project is to make a silent install version of winutils, that
+makes use of all that it can do. But for now it only does that mention toned
+above, since i haven't got the motivation nor time to finish this now. 
+
+Feel free to contribute if you wish to make it more cliy. 
+
+
+If you decide to contribute, try to not reinvent the wheel. If you can use a
+function directly, try to. Don't remove things from functions that has no
+effect, like removing the ui hooks. Since that really doesn't make much of a
+difference and causes this repo to diverge. 
+
+Unless necesary also try to keep changes to main.ps1 and start.ps1, since that
+makes syncing this fork a lot easier. 
+
+If anyone finds interest in this ill consider getting some version of this into
+the real repo. But atm I think its a bit too botchy / thrown together to do
+that. 
+
+If anyone wants get this, or parts of this into a better state, so that it can 
+be merged upstream, feel free to give it a try (credit would be nice).
+
+## Usage
+
+iex "& { $(irm scripts.upidapi.dev/winutil) } -Config config.json" 
+
+(this doesn't work atm since i haven't set it up, or it does and i forgot to
+remove this line)
+
+Where the config comes from exporting your selections in the normal winutils
+
+
+## Notes
+
+The send.ps1 is a simple script to take the scripts, developed on linux on a
+shared drive and use them on windows. 
+
+config.json is my standard winutil config minimal.json is for debugging
+
+
+# The following is the readme for the normal winutils
+
+
 
 [![Version](https://img.shields.io/github/v/release/ChrisTitusTech/winutil?color=%230567ff&label=Latest%20Release&style=for-the-badge)](https://github.com/ChrisTitusTech/winutil/releases/latest)
 ![GitHub Downloads (specific asset, all releases)](https://img.shields.io/github/downloads/ChrisTitusTech/winutil/winutil.ps1?label=Total%20Downloads&style=for-the-badge)

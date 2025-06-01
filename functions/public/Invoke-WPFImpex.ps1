@@ -44,7 +44,9 @@ function Invoke-WPFImpex {
             try {
                 $Config = ConfigDialog
                 if ($Config) {
-                    $jsonFile = Get-WinUtilCheckBoxes -unCheck $false | ConvertTo-Json
+                    $ConfigData = Get-WinUtilCheckBoxes -unCheck $false
+                    $ConfigData.Remove('Install')
+                    $jsonFile = $ConfigData | ConvertTo-Json
                     $jsonFile | Out-File $Config -Force
                     "iex ""& { `$(irm https://christitus.com/win) } -Config '$Config'""" | Set-Clipboard
                 }

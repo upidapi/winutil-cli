@@ -58,45 +58,37 @@ function Test-WinUtilPackageManager {
             # Grabs the latest release of Winget from the Github API for version check process.
             $response = winget search -e Microsoft.AppInstaller --accept-source-agreements
             $wingetLatestVersion = ($response | Select-String -Pattern '\d+\.\d+\.\d+\.\d+').Matches.Value
-            Write-Host "Latest Search Version: $wingetLatestVersion" -ForegroundColor White
-            Write-Host "Current Installed Version: $wingetCurrentVersion" -ForegroundColor White
+            Write-Host "Latest Search Version: $wingetLatestVersion"
+            Write-Host "Current Installed Version: $wingetCurrentVersion"
             $wingetOutdated = $wingetCurrentVersion -lt [System.Version]::Parse($wingetLatestVersion)
-            Write-Host "===========================================" -ForegroundColor Green
-            Write-Host "---        Winget is installed          ---" -ForegroundColor Green
-            Write-Host "===========================================" -ForegroundColor Green
+            Write-Host "Winget is installed"
 
             if (!$wingetPreview) {
-                Write-Host "    - Winget is a release version." -ForegroundColor Green
+                Write-Host "    - Winget is a release version."
             } else {
                 Write-Host "    - Winget is a preview version. Unexpected problems may occur." -ForegroundColor Yellow
             }
 
             if (!$wingetOutdated) {
-                Write-Host "    - Winget is Up to Date" -ForegroundColor Green
+                Write-Host "    - Winget is Up to Date"
                 $status = "installed"
             } else {
                 Write-Host "    - Winget is Out of Date" -ForegroundColor Red
                 $status = "outdated"
             }
         } else {
-            Write-Host "===========================================" -ForegroundColor Red
-            Write-Host "---      Winget is not installed        ---" -ForegroundColor Red
-            Write-Host "===========================================" -ForegroundColor Red
+            Write-Host "Winget is not installed" -ForegroundColor Red
             $status = "not-installed"
         }
     }
 
     if ($choco) {
         if ((Get-Command -Name choco -ErrorAction Ignore) -and ($chocoVersion = (Get-Item "$env:ChocolateyInstall\choco.exe" -ErrorAction Ignore).VersionInfo.ProductVersion)) {
-            Write-Host "===========================================" -ForegroundColor Green
-            Write-Host "---      Chocolatey is installed        ---" -ForegroundColor Green
-            Write-Host "===========================================" -ForegroundColor Green
-            Write-Host "Version: v$chocoVersion" -ForegroundColor White
+            Write-Host "Chocolatey is installed"
+            Write-Host "Version: v$chocoVersion"
             $status = "installed"
         } else {
-            Write-Host "===========================================" -ForegroundColor Red
-            Write-Host "---    Chocolatey is not installed      ---" -ForegroundColor Red
-            Write-Host "===========================================" -ForegroundColor Red
+            Write-Host "Chocolatey is not installed" -ForegroundColor Red
             $status = "not-installed"
         }
     }

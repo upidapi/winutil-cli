@@ -3,9 +3,14 @@
                           "WPFTweaksDisableNotifications"
                       ],
         "WPFInstall":  [
-                           "WPFInstallstarship"
+                           "WPFInstallthunderbird",
+                           "WPFInstallnuget"
                        ],
         "WPFFeature":  [
                            "WPFFeatureDisableSearchSuggestions"
-                       ]
+                       ],
+        "WPFToggle":  [
+                      "WPFToggleTaskView_1",
+                      "WPFToggleHiddenFiles_0"
+                  ]
     }
