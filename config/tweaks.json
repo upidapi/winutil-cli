@@ -2865,7 +2865,7 @@
       "
           $RazerPath = \"C:\\Windows\\Installer\\Razer\"
           Remove-Item $RazerPath -Recurse -Force
-          New-Item -Path \"C:\\Windows\\Installer\\\" -Name \"Razer\" -ItemType \"directory\"
+          New-Item -Path \"C:\\Windows\\Installer\\\" -Name \"Razer\" -ItemType \"directory\" | Out-Null
           $Acl = Get-Acl $RazerPath
           $Ar = New-Object System.Security.AccessControl.FileSystemAccessRule(\"NT AUTHORITY\\SYSTEM\",\"Write\",\"ContainerInherit,ObjectInherit\",\"None\",\"Deny\")
           $Acl.SetAccessRule($Ar)
@@ -3170,7 +3170,7 @@
     "Order": "a027_",
     "InvokeScript": [
       "
-      New-Item -Path \"HKCU:\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\" -Name \"InprocServer32\" -force -value \"\"
+      New-Item -Path \"HKCU:\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\" -Name \"InprocServer32\" -force -value \"\" | Out-Null
       Write-Host Restarting explorer.exe ...
       Stop-Process -Name \"explorer\" -Force
       "
@@ -3193,7 +3193,7 @@
     "Order": "a009_",
     "InvokeScript": [
       "
-      cleanmgr.exe /d C: /VERYLOWDISK
+      cleanmgr.exe /d C: /VERYLOWDISK /c
       Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
       "
     ],
@@ -3952,7 +3952,7 @@
       }
 
       # Generic view
-      New-ItemProperty -Path $allFolders -Name \"FolderType\" -Value \"NotSpecified\" -PropertyType String -Force
+      New-ItemProperty -Path $allFolders -Name \"FolderType\" -Value \"NotSpecified\" -PropertyType String -Force | Out-Null
       Write-Host \"Set FolderType to NotSpecified\"
 
       Write-Host Please sign out and back in, or restart your computer to apply the changes!
@@ -3970,7 +3970,7 @@
       Remove-Item -Path $bags -Recurse -Force
       Write-Host \"Removed $bags\"
 
-      Remove-Item -Path $bagMRU -Recurse -Force
+      Remove-Item -Path $bagMRU -Recurse -Force -ErrorAction SilentlyContinue
       Write-Host \"Removed $bagMRU\"
 
       Write-Host Please sign out and back in, or restart your computer to apply the changes!
