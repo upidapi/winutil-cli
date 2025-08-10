@@ -9,7 +9,8 @@
 param (
     [switch]$Debug,
     [string]$Config,
-    [switch]$Run
+    [switch]$Run,
+    [switch]$Cli,
 )
 
 # Set DebugPreference based on the -Debug switch
@@ -83,6 +84,8 @@ $logdir = "$env:localappdata\winutil\logs"
 [System.IO.Directory]::CreateDirectory("$logdir") | Out-Null
 Start-Transcript -Path "$logdir\winutil_$dateTime.log" -Append -NoClobber | Out-Null
 
-# Set PowerShell window title
-$Host.UI.RawUI.WindowTitle = "WinUtil (Admin)"
-clear-host
+if (!$CLI) {
+    # Set PowerShell window title
+    $Host.UI.RawUI.WindowTitle = "WinUtil (Admin)"
+    clear-host
+}

@@ -104,7 +104,11 @@ $xaml
 '@
 "@)
 
+$script_content.Add('if ($CLI) {')
+$script_content.Add($(Get-Content "scripts\cli.ps1"))
+$script_content.Add('} else {')
 $script_content.Add($(Get-Content "scripts\main.ps1"))
+$script_content.Add('}')
 
 if ($Debug) {
     Update-Progress "Writing debug files" 95

@@ -58,9 +58,12 @@ function Invoke-WinUtilTweaks {
             if($KeepServiceStartup -AND !($undo)) {
                 try {
                     # Check if the service exists
-                    $service = Get-Service -Name $psitem.Name -ErrorAction Stop
-                    if(!($service.StartType.ToString() -eq $psitem.$($values.OriginalService))) {
-                        Write-Debug "Service $($service.Name) was changed in the past to $($service.StartType.ToString()) from it's original type of $($psitem.$($values.OriginalService)), will not change it to $($psitem.$($values.service))"
+                    $service = Get-Service -Name $psitem.Name -ErrorAction SilentlyContinue
+                    if (!$service) {
+                        Write-Warning "Service $($psitem.Name) was not found"
+                    } elseif (!($service.StartType.ToString() -eq $psitem.$($values.OriginalService))) {
+                        Write-Debug "Service $($service.Name) was changed in the past to $($service.StartType.ToString()) from it's original type of $($p
+           riginalService)), will not change it to $($psitem.$($values.service))"
                         $changeservice = $false
                     }
                 } catch [System.ServiceProcess.ServiceNotFoundException] {

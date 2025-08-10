@@ -25,6 +25,7 @@ Function Get-WinUtilCheckBoxes {
         WPFTweaks     = @()
         WPFFeature    = @()
         WPFInstall    = @()
+        WPFToggle    = @()
     }
 
     $CheckBoxes = $sync.GetEnumerator() | Where-Object { $_.Value -is [System.Windows.Controls.CheckBox] }
@@ -46,7 +47,14 @@ Function Get-WinUtilCheckBoxes {
         $group = if ($CheckBox.Key.StartsWith("WPFInstall")) { "Install" }
                 elseif ($CheckBox.Key.StartsWith("WPFTweaks")) { "WPFTweaks" }
                 elseif ($CheckBox.Key.StartsWith("WPFFeature")) { "WPFFeature" }
-        if ($group) {
+                elseif ($CheckBox.Key.StartsWith("WPFToggle")) { "WPFToggle" }
+    
+        if ($group -eq "WPFToggle") {
+            $state = if ($CheckBox.Value.IsChecked -eq $true) 
+                { "1" } else { "0" }
+    
+            $Output[$group] += "$($CheckBox.Name)_$($state)"
+        } elseif ($group) {
             if ($CheckBox.Value.IsChecked -eq $true) {
                 $feature = switch ($group) {
                     "Install" {

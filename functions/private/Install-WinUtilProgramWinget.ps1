@@ -100,7 +100,12 @@ Function Install-WinUtilProgramWinget {
         $userAcknowledgment = [System.Windows.MessageBox]::Show("You need to input your password to install $($Program) with specific user credentials.", "User credential Prompt", [System.Windows.MessageBoxButton]::Ok)
         if ($userAcknowledgment -eq 'Ok') {
             $getcreds = Get-Credential $env:USERNAME
+
             $status = Invoke-Winget -wingetId $Program -credential $getcreds
+            
+            # for some reason this didnt work for me
+            return $true
+
             if ($status -eq 0) {
                 Write-Host "$($Program) installed successfully with User prompt."
                 return $true

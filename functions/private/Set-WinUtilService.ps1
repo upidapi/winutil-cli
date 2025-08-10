@@ -22,7 +22,7 @@ Function Set-WinUtilService {
         Write-Host "Setting Service $Name to $StartupType"
 
         # Check if the service exists
-        $service = Get-Service -Name $Name -ErrorAction Stop
+        $service = Get-Service -Name $Name -ErrorAction SilentlyContinue
 
         # Service exists, proceed with changing properties
         $service | Set-Service -StartupType $StartupType -ErrorAction Stop
