@@ -26,14 +26,23 @@ If anyone wants get this, or parts of this into a better state, so that it can
 be merged upstream, feel free to give it a try (credit would be nice).
 
 ## Usage
-
+```ps1
 iex "& { $(irm scripts.upidapi.dev/winutil) } -Config config.json" 
+```
 
 (this doesn't work atm since i haven't set it up, or it does and i forgot to
 remove this line)
 
-Where the config comes from exporting your selections in the normal winutils
+Where the config comes from exporting your selections in the normal winutils. 
 
+Whilst that doesn't work yow can use this instead.
+```ps1 
+$tagName = (Invoke-WebRequest -UseBasicParsing -Uri "https://api.github.com/repos/upidapi/winutil-cli/releases" | ConvertFrom-Json)[0].tag_name
+
+$downloadUrl = "https://github.com/upidapi/winutil-cli/releases/download/$($tagName)/winutil.ps1"
+
+& ([scriptblock]::Create($(irm $downloadUrl))) -Config config.json -Run
+```
 
 ## Notes
 
