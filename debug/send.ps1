@@ -5,7 +5,7 @@ Start-Service VirtioFsSvc
 
 cd C:\\Users\Default
 rm .\winutil\ -r -fo
-cp Z:\winutil-v3 .\winutil -r 
+cp Z:\winutil-v4 .\winutil -r 
 cd .\winutil\
 
 Write-Host "Converting file encodings"
@@ -35,4 +35,4 @@ foreach ($file in $files) {
 Write-Host "Encoding conversion process completed."
 
 .\Compile.ps1
-.\winutil.ps1 -Config "test.json" -Run
+.\winutil.ps1 -Config "debug\config.json" -Cli

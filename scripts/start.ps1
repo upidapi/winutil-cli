@@ -8,9 +8,9 @@
 
 param (
     [switch]$Debug,
-    [string]$Config,
-    [switch]$Run,
-    [switch]$Cli,
+    [string]$Config, # required for cli
+    [switch]$Run, # only for gui
+    [switch]$Cli
 )
 
 # Set DebugPreference based on the -Debug switch
